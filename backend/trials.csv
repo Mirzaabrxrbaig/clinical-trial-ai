@@ -1,0 +1,5 @@
+trial_id,disease,inclusion_criteria,exclusion_criteria
+T101,Diabetes,"Age 18-60, HbA1c > 7, Type 2 Diabetes","Kidney disease"
+T102,Cancer,"Stage 2 Breast Cancer, Age 30-70","Heart failure"
+T103,Hypertension,"Blood Pressure > 140/90, Age 40-65","Stroke history"
+T104,Diabetes,"Type 1 Diabetes, Insulin Therapy","Liver disease"
