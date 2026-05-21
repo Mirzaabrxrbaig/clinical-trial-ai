@@ -2,8 +2,16 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from matcher import match_trials
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Enable CORS
 app.add_middleware(
