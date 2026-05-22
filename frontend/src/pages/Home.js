@@ -27,41 +27,49 @@ function Home() {
 
   const handleSubmit = async () => {
 
-    const payload = {
-      name: formData.name,
-      age: parseInt(formData.age),
-      conditions: [formData.conditions],
-      symptoms: [formData.symptoms],
-      lab_results: {
-        HbA1c: parseFloat(formData.hba1c)
-      }
-    };
+  const mockResults = [
 
-    try {
+    {
+      trial_id: "T101",
+      disease: "Diabetes",
+      match_score: 92.4,
+      inclusion_criteria:
+        "Age 18-60, HbA1c > 7, Type 2 Diabetes",
+      exclusion_criteria:
+        "Kidney disease",
+      ai_explanation:
+        "Patient strongly matches diabetes clinical trial eligibility based on symptoms and lab reports."
+    },
 
-      const response = await fetch(
-        "http://127.0.0.1:8000/match",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(payload)
-        }
-      );
+    {
+      trial_id: "T205",
+      disease: "Heart Disease",
+      match_score: 87.1,
+      inclusion_criteria:
+        "High blood pressure, chest pain history",
+      exclusion_criteria:
+        "Recent cardiac surgery",
+      ai_explanation:
+        "AI analysis detected cardiovascular risk indicators and relevant patient history."
+    },
 
-      const data = await response.json();
-
-      setResults(data.matches);
-
-    } catch {
-
-      alert("Backend not running!");
-
+    {
+      trial_id: "T309",
+      disease: "Hypertension",
+      match_score: 81.6,
+      inclusion_criteria:
+        "Blood pressure above 140/90",
+      exclusion_criteria:
+        "Severe liver disease",
+      ai_explanation:
+        "Semantic healthcare analysis identified hypertension-related eligibility patterns."
     }
 
-  };
+  ];
 
+  setResults(mockResults);
+
+};
   const scrollToForm = () => {
 
     document
